@@ -7,6 +7,10 @@ $router->post('/todo/add', function() {
     require_once('controllers/todo/todo_add.php');
 });
 
+$router->post('/todo/status', function() {
+    require_once('controllers/todo/todo_status.php');
+});
+
 $router->post('/todo/delete', function() {
     require_once('controllers/todo/todo_delete.php');
 });

@@ -34,7 +34,9 @@ if (!empty($errors)) {
     header('Location: /todo');
     die();
 }
-$todo = new \classes\models\todo\Todo($message, $user);
+
+$status = "in progress";
+$todo = new \classes\models\todo\Todo($message, $user, $status);
 
 if ($todo->store() == false) {
     session_start();

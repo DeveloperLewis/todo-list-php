@@ -23,10 +23,26 @@
         <tbody>
             <tr>
             <th scope="row"><?php echo $i++?></th>
-            <td><?php print_r($v['message']); ?></td>
+
+            <?php
+                if ($v['status'] == "completed") {
+                    echo '<td><strike>' . $v['message'] . '</strike></td>';
+                }
+                else if ($v['status'] == "in progress") {
+                    echo '<td>' . $v['message'] . '</td>';
+                }
+            ?>
+        
+            <form action="/todo/status" method="post">
+                <input type="hidden" value="<?php print_r($v['message_id']); ?>" name="messageid">
+                <td><button class="btn btn-success" type="submit" style="float: right">
+                <?php if ($v['status'] == "completed") { echo '<i class="fa-solid fa-x"></i>'; } else if ($v['status'] == "in progress") { echo '<i class="fa-solid fa-check"></i>'; } ?>
+                </button></td>
+            </form>
+
             <form action="/todo/delete" method="post">
-            <input type="hidden" value="<?php print_r($v['message_id']); ?>" name="messageid">
-            <td><button class="btn btn-danger" type="submit" style="float: right"><i class="fa-solid fa-eraser"></i></button></td>
+                <input type="hidden" value="<?php print_r($v['message_id']); ?>" name="messageid">
+                <td><button class="btn btn-danger" type="submit" style="float: right"><i class="fa-solid fa-eraser"></i></button></td>
             </form>
             </tr>
         </tbody>
