@@ -23,7 +23,7 @@ if (strlen($message) > 500) {
     $errors['max_size'] = "Todo message must be less than 500 characters.";
 };
 
-if (preg_match('/[^A-Za-z0-9 ]/', $message)) {
+if (preg_match('/[^A-Za-z0-9@!. ]/', $message)) {
     $errors['special_characters'] = "Todo message cannot contain any special characters. Letters, numbers and spaces only.";
 };
 
