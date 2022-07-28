@@ -15,7 +15,7 @@
             <tr>
             <th scope="col">#</th>
             <th scope="col">Todos</th>
-            <th scope="col"></th>
+          
             </tr>
         </thead>
         <?php if (is_array($todos)) { $i = 1;?>
@@ -26,7 +26,7 @@
             <td><?php print_r($v['message']); ?></td>
             <form action="/todo/delete" method="post">
             <input type="hidden" value="<?php print_r($v['message_id']); ?>" name="messageid">
-            <td><button class="btn btn-danger" type="submit">X</button></td>
+            <td><button class="btn btn-danger" type="submit" style="float: right"><i class="fa-solid fa-eraser"></i></button></td>
             </form>
             </tr>
         </tbody>
@@ -53,17 +53,23 @@
                     unset($_SESSION['errors']);
                 }
             ?>
+
             <form action="/todo/add" method="POST">
                 <div class="form-group">
-                    <label for="todo">Add new todo message</label>
-                    <input type="text" class="form-control" name="message" id="message">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary" style="float: right">Add</button>
+                <div style="overflow: hidden; padding-right: .5em;">
+                    <input type="text" class="form-control" name="message" id="message" style="width: 100%;">
                 </div>
+                </div>
+
             </form>
+
+            
         </div>
 
         <div class="col-md-4">
-            
+
+
         </div>
     </div>
 
