@@ -2,8 +2,13 @@
 
 //Autoloading classes to create a router object.
 require_once('vendor/autoload.php');
-$router = new classes\Router();
 
+//Get the initalization script to create the database and tables. It will delete itself after it has ran.
+if (file_exists('init.php')) {
+    include_once('init.php');
+}
+
+$router = new classes\Router();
 
 //Standard & Basic routing
 $router->get('/', function() {
