@@ -2,7 +2,7 @@
 A todo list app that allows for user accounts to be created, which stores their todo list permanently
 within a database securely. 
 ## Installation
-- git clone https://github.com/DeveloperLewis/todo-list-php.git
+- git clone https://github.com/DeveloperLewis/todo-list-php.git .
 - composer install
 
 - Enter the database.php class in the classes folder and change the username and password to match your database login.
